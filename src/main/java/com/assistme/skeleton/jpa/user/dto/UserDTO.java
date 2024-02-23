@@ -17,6 +17,6 @@ public class UserDTO {
 
     private String role;
 
-    private boolean enabled;
+    private boolean isActive;
 
 }

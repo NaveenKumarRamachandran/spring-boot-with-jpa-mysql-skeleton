@@ -9,16 +9,21 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The type User entity.
  */
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -35,11 +40,11 @@ public class UserEntity {
     @Column(name = "role")
     private String role;
 
-    @Column(name = "is_enabled")
-    private boolean enabled;
+    @Column(name = "is_active")
+    private boolean active;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<TodoEntity> todo = new ArrayList<>();
-
 
 }
